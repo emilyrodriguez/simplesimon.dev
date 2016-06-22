@@ -1,0 +1,60 @@
+h1 {
+	text-align: center;
+	color: #FFF;
+}
+.box {
+	width: 200px;
+	height: 200px;
+	padding: 10px;
+	position: absolute;
+	display: inline-block;
+	opacity: .8;
+}
+#red {
+	background-color: red;
+}
+
+#blue {
+	background-color: blue;
+	right: 0;
+}
+
+#green {
+	background-color: green;
+	bottom: 0;
+}
+
+#yellow {
+	background-color: yellow;
+	right: 0;
+	bottom: 0;
+}
+#controls {
+	width: 200px;
+	height: 100px;
+	background-color: black;
+	opacity: .8;
+	color: #FFF;
+	position: absolute;
+	top: 350px;
+
+}
+
+img {
+	width: 200px;
+	height: 200px;
+}
+#container {
+	position: relative;
+	margin: 100px auto 0 auto;
+	width: 440px;
+	height: 440px;
+}
+
+html {
+	background-image: url("img/theme.jpg");
+    z-index: -1;
+    position: relative;
+    background-size: contain;
+    background-size: 100% 100%;
+}
