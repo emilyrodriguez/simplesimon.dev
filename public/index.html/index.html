@@ -6,30 +6,30 @@
 	</head>
 	<body>
 		<h1>Clone Club Says</h1>
+		<div id="controls">
+			<p>Level: <span id="level" data-value="level">1</span></p>
+			<p>Score: <span id="score" data-value="score">0</span></p>
+			<button value="start" id="start">Start Game</button>
+			<audio src="OB-theme.mp3" id="theme" loop>
+			Audio is not supported by your browser.
+			</audio>
+		</div>
 		<div id="container">
-			<div id="red" class="box img-container">
+			<div id="red" class="box img-container" data-value="1">
     			<img src="img/cosima.jpg" id="cosima">
 			</div>
 
-			<div id="blue" class="box img-container">
+			<div id="blue" class="box img-container" data-value="2">
     			<img src="img/sarah.jpg" id="sarah">
 			</div>
 
-			<div id="green" class="box img-container">
+			<div id="green" class="box img-container" data-value="3">
     			<img src="img/helena.jpg" id="helena">
 			</div>
 
-			<div id="yellow" class="box img-container">
+			<div id="yellow" class="box img-container" data-value="4">
     			<img src="img/alison.jpg" id="alison">
 			</div>
-		</div>
-		<div id="controls">
-			<p>Score: <span id="score">0</span></p>
-			<p>Level: <span id="level">1</span></p>
-			<button>Start Game</button>
-			<audio src="OB-theme.mp3" loop>
-			Audio is not supported by your browser.
-			</audio>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

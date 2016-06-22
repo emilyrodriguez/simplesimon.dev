@@ -2,44 +2,52 @@ h1 {
 	text-align: center;
 	color: #FFF;
 }
+img#alison,img#sarah,img#cosima,img#helena {
+	opacity: .6;
+}
 .box {
 	width: 200px;
 	height: 200px;
 	padding: 10px;
 	position: absolute;
 	display: inline-block;
-	opacity: .8;
+	opacity: 1;
 }
 #red {
-	background-color: red;
+	background-color: #3C1E24;
 }
 
 #blue {
-	background-color: blue;
+	background-color: #223055;
 	right: 0;
 }
 
 #green {
-	background-color: green;
+	background-color: #41756A;
 	bottom: 0;
 }
 
 #yellow {
-	background-color: yellow;
+	background-color: #959050;
 	right: 0;
 	bottom: 0;
 }
 #controls {
-	width: 200px;
-	height: 100px;
+	width: 150px;
+	height: 200px;
 	background-color: black;
 	opacity: .8;
 	color: #FFF;
 	position: absolute;
-	top: 350px;
+	top: 300px;
+	text-align: center;
+	margin: 5px;
 
 }
-
+li {
+	list-style-type: none;
+	text-align: center;
+}
 img {
 	width: 200px;
 	height: 200px;
