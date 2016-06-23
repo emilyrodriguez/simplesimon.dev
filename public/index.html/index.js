@@ -3,7 +3,9 @@
 		var colorSequence = [];
 		var userInput = [];
 		var theme = $('#start').on('click', function() {
-    			$('#theme').get(0).play();
+    			var audio = $('#theme').get(0);
+				//audio.loop = false;
+    			audio.play();
     			startGame();
 		});
 		var level;
@@ -17,7 +19,6 @@
 			userInput = [];
 			level = 0;
 			newLevel();
-			console.log(colorSequence);
 		}
 		setTimeout(function() {
 			allowUserInput=true;
@@ -46,13 +47,15 @@
 					userInput = [];
 					newLevel();
 				}
-				console.log(colorSequence, userInput);
 			} else {
 				level = 0;
 				$('#level').text(1);
-				// active = false;
-				console.log("Game over!");
-				console.log(userInput);
+				var audio = $('#theme').get(0);
+    			audio.pause()
+    			audio = $('#gameover').get(0);
+    			audio.loop = false;
+    			audio.play();
+				alert("Game over!");
 			}
 		});
 
@@ -65,7 +68,6 @@
 				 }, 500).animate({
 					 'opacity': '1'
 				 }, 500);
-
 				boxes++;
 				if (boxes == colorSequence.length){
 					clearInterval(inteverlId);
