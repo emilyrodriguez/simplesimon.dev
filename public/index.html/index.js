@@ -6,10 +6,8 @@
     			$('#theme').get(0).play();
     			startGame();
 		});
-		var round;
-		var active;
+		var level;
 		var allowUserInput = false;
-	
 		function randomNumber() {
 			return Math.floor(Math.random()* 4)+1;
 		}
@@ -17,57 +15,10 @@
 		function startGame() {
 			colorSequence = [];
 			userInput = [];
-			round = 0;
-			active = true;
-			$('p[data-action="lose"]').hide();
-			$('#start').on('click', function () {
-				$('#container').get(0).play();
-			})
-			newRound();
+			level = 0;
+			newLevel();
+			console.log(colorSequence);
 		}
-
-		function newRound() {
-			$('[data-round]').text(++round);
-			colorSequence.push(randomNumber());
-			animate(colorSequence);
-		}	
-
-		function registerClick(e) {
-			var desiredResponse = copy.shift();
-			var actualResponse = $(e.target).data('value');
-			active = (desiredResponse === actualResponse);
-			checkLoss();
-		}
-
-		function checkLoss() {
-			if (copy.length === 0 && active) {
-				deactivateSimon();
-				newRound();
-			} else if (!active) {
-				deactivateSimon();
-				gameOver();
-				alert("Game Over.");
-			}
-		}
-
-		function animate(colorSequence) {
-			colorSequence.forEach(function(boxes, index) {
-				setTimeout(function() {
-					 $('[data-value=' + boxes + ']').animate({
-						 'opacity': '.2'
-					 }, 1000). animate({
-						 'opacity': '1'
-					 }, 1000 * index)
-					})
-			 	});	
-		}
-
-		function gameOver() {
-			$('p[data-action=lose]').show();
-			$($('[data-round]').get(0)).text('0');
-		}
-
-
 		setTimeout(function() {
 			allowUserInput=true;
 		}, 1010 * colorSequence.length);
@@ -80,4 +31,45 @@
 				}, 200);
 			}
 		});
+
+		function newLevel() {
+			level++;
+			 $('#level').text(level);
+				 colorSequence.push(randomNumber());
+				 animate(colorSequence);
+		}	
+
+		$('.box').click(function checkLoss(event) {
+			userInput.push($(this).data('value'));
+			if (colorSequence.slice(0, userInput.length).join() === userInput.join()) {
+				if (colorSequence.length == userInput.length) {
+					userInput = [];
+					newLevel();
+				}
+				console.log(colorSequence, userInput);
+			} else {
+				level = 0;
+				$('#level').text(1);
+				// active = false;
+				console.log("Game over!");
+				console.log(userInput);
+			}
+		});
+
+		function animate(colorSequence) {
+			var boxes = 0;
+			var inteverlId = setInterval(function() {
+				console.log( $('[data-value=' + (boxes + 1) + ']').length)
+				 $('[data-value=' + colorSequence[boxes] + ']').animate({
+					 'opacity': '.2'
+				 }, 500).animate({
+					 'opacity': '1'
+				 }, 500);
+
+				boxes++;
+				if (boxes == colorSequence.length){
+					clearInterval(inteverlId);
+				}
+			}, 1000);
+		}
 })();

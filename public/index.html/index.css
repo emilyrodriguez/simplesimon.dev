@@ -3,7 +3,7 @@ h1 {
 	color: #FFF;
 }
 img#alison,img#sarah,img#cosima,img#helena {
-	opacity: .6;
+	opacity: .7;
 }
 .box {
 	width: 200px;
@@ -34,7 +34,7 @@ img#alison,img#sarah,img#cosima,img#helena {
 }
 #controls {
 	width: 150px;
-	height: 200px;
+	height: 100px;
 	background-color: black;
 	opacity: .8;
 	color: #FFF;
