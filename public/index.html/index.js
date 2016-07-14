@@ -3,11 +3,11 @@
 		var colorSequence = [];
 		var userInput = [];
 		var theme = $('#start').on('click', function() {
-    			var audio = $('#theme').get(0);
-				//audio.loop = false;
-    			audio.play();
-    			startGame();
+    	var audio = $('#theme').get(0);
+    		audio.play();
+    		startGame();
 		});
+
 		var level;
 		var allowUserInput = false;
 		function randomNumber() {
@@ -20,6 +20,7 @@
 			level = 0;
 			newLevel();
 		}
+
 		setTimeout(function() {
 			allowUserInput=true;
 		}, 1010 * colorSequence.length);
@@ -35,9 +36,9 @@
 
 		function newLevel() {
 			level++;
-			 $('#level').text(level);
-				 colorSequence.push(randomNumber());
-				 animate(colorSequence);
+			$('#level').text(level);
+				colorSequence.push(randomNumber());
+				animate(colorSequence);
 		}	
 
 		$('.box').click(function checkLoss(event) {
